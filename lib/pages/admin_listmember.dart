@@ -25,7 +25,7 @@ class _AdminListMemberState extends State<AdminListMember> {
   Future<TokenMember> getTokenMember() async {
     String token = tokenData.trim();
     var url = ApiUrl.strApiProfile;
-    final response = await http.get(url, headers: {
+    final response = await http.get(Uri.parse(url), headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
       'Authorization': 'Bearer $token',
@@ -60,22 +60,21 @@ class _AdminListMemberState extends State<AdminListMember> {
                   SizedBox(
                     height: 15,
                   ),
-                  BaseBox('Lastname', result.lastname.toString(),
-                      Colors.amberAccent),
+                  BaseBox(
+                      'Lastname', result.lastname.toString(), Colors.lightBlue),
                   SizedBox(
                     height: 15,
                   ),
-                  BaseBox("email", result.email.toString(), Colors.amberAccent),
+                  BaseBox("email", result.email.toString(), Colors.lightBlue),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  BaseBox('mobile', result.mobile.toString(), Colors.lightBlue),
                   SizedBox(
                     height: 15,
                   ),
                   BaseBox(
-                      'mobile', result.mobile.toString(), Colors.amberAccent),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  BaseBox(
-                      'country', result.country.toString(), Colors.amberAccent),
+                      'country', result.country.toString(), Colors.lightBlue),
                   SizedBox(
                     height: 15,
                   ),
